@@ -95,7 +95,7 @@ class TestCalculator(unittest.TestCase):
         self.calc.add_to_expression(3)
         self.calc.append_operator('+')
         self.calc.add_to_expression(2)
-        self.calc.square()
+        self.calc.square(self.calc.current_expression)
         self.assertEqual(self.calc.current_expression, '25')
 
     def test_sqrt_combined(self):
@@ -111,7 +111,7 @@ class TestCalculator(unittest.TestCase):
         self.calc.add_to_expression(16)
         self.calc.append_operator('/')
         self.calc.add_to_expression(4)
-        self.calc.square()
+        self.calc.square(self.calc.current_expression)
         self.assertEqual(self.calc.current_expression, '16.0')
 
 if __name__ == "__main__":
