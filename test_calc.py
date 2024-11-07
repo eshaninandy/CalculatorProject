@@ -79,6 +79,40 @@ class TestCalculator(unittest.TestCase):
         self.calc.add_to_expression(5)
         self.calc.evaluate()
         self.assertEqual(self.calc.current_expression, '16.0') 
+        
+    def test_square(self):
+        self.calc.add_to_expression(4)
+        self.calc.square()
+        self.assertEqual(self.calc.current_expression, '16')
+
+    def test_sqrt(self):
+        self.calc.add_to_expression(16)
+        self.calc.sqrt()
+        self.assertEqual(self.calc.current_expression, '4.0')
+
+    def test_square_combined(self):
+        # (3 + 2) ^ 2
+        self.calc.add_to_expression(3)
+        self.calc.append_operator('+')
+        self.calc.add_to_expression(2)
+        self.calc.square()
+        self.assertEqual(self.calc.current_expression, '25')
+
+    def test_sqrt_combined(self):
+        # sqrt(9 + 16)
+        self.calc.add_to_expression(9)
+        self.calc.append_operator('+')
+        self.calc.add_to_expression(16)
+        self.calc.sqrt()
+        self.assertEqual(self.calc.current_expression, '5.0')
+
+    def test_square_root_in_expression(self):
+        # (16 / 4) ^ 2
+        self.calc.add_to_expression(16)
+        self.calc.append_operator('/')
+        self.calc.add_to_expression(4)
+        self.calc.square()
+        self.assertEqual(self.calc.current_expression, '16.0')
 
 if __name__ == "__main__":
     unittest.main()
