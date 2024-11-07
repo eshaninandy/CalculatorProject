@@ -4,7 +4,7 @@ from calculator import CalculatorCLI  # import your class/module as needed
 class TestCalculator(unittest.TestCase):
 
     def setUp(self):
-        self.calc = Calculator()
+        self.calc = CalculatorCLI()
 
     def test_addition(self):
         self.calc.add_to_expression(5)
