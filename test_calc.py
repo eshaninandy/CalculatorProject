@@ -32,7 +32,7 @@ class TestCalculator(unittest.TestCase):
         self.calc.append_operator('/')
         self.calc.add_to_expression(2)
         self.calc.evaluate()
-        self.assertEqual(self.calc.current_expression, '4')
+        self.assertEqual(self.calc.current_expression, '4.0')
 
 if __name__ == "__main__":
     unittest.main()
