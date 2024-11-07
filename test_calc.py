@@ -12,6 +12,8 @@ class TestCalculator(unittest.TestCase):
         self.calc.add_to_expression(3)
         self.calc.evaluate()
         self.assertEqual(self.calc.current_expression, '8')
+
+        self.calc.clear()
         self.calc.add_to_expression(15)
         self.calc.append_operator('+')
         self.calc.add_to_expression(30)
