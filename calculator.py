@@ -46,14 +46,6 @@ class CalculatorCLI:
         except Exception:
             self.current_expression = "Error"
 
-    def evaluate(self):
-        self.total_expression += self.current_expression
-        try:
-            self.current_expression = str(eval(self.total_expression))
-            self.total_expression = ""
-        except Exception:
-            self.current_expression = "Error"
-
     def run(self):
         print("CLI Calculator (type 'exit' to quit)")
         while True:
