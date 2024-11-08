@@ -113,6 +113,28 @@ class TestCalculator(unittest.TestCase):
         self.calc.add_to_expression(4)
         self.calc.square()
         self.assertEqual(self.calc.current_expression, '16.0')
+        
+    def test_square_and_sqrt_loop(self):
+        # Test square and sqrt with a loop for different values
+        for i in range(1, 101):
+            self.calc.add_to_expression(i)
+            self.calc.square()
+            self.assertEqual(self.calc.current_expression, str(i ** 2))
+            self.calc.clear()
+
+            self.calc.add_to_expression(i ** 2)
+            self.calc.sqrt()
+            self.assertEqual(self.calc.current_expression, str(float(i)))
+            self.calc.clear()
+            
+     def test_addition_loop(self):
+        for i in range(1, 1000):  # Testing additions with values from 1 to 10
+            self.calc.add_to_expression(i)
+            self.calc.append_operator('+')
+            self.calc.add_to_expression(i)
+            self.calc.evaluate()
+            self.assertEqual(self.calc.current_expression, str(i + i))
+            self.calc.clear()
 
 if __name__ == "__main__":
     unittest.main()
