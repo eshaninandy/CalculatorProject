@@ -127,7 +127,7 @@ class TestCalculator(unittest.TestCase):
             self.assertEqual(self.calc.current_expression, str(float(i)))
             self.calc.clear()
             
-     def test_addition_loop(self):
+    def test_addition_loop(self):
         for i in range(1, 1000):  # Testing additions with values from 1 to 10
             self.calc.add_to_expression(i)
             self.calc.append_operator('+')
