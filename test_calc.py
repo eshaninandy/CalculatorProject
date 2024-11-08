@@ -116,7 +116,7 @@ class TestCalculator(unittest.TestCase):
         
     def test_square_and_sqrt_loop(self):
         # Test square and sqrt with a loop for different values
-        for i in range(1, 101):
+        for i in range(1, 10001):
             self.calc.add_to_expression(i)
             self.calc.square()
             self.assertEqual(self.calc.current_expression, str(i ** 2))
@@ -128,7 +128,7 @@ class TestCalculator(unittest.TestCase):
             self.calc.clear()
             
     def test_addition_loop(self):
-        for i in range(1, 1000):  # Testing additions with values from 1 to 10
+        for i in range(1, 10001):  # Testing additions with values from 1 to 10
             self.calc.add_to_expression(i)
             self.calc.append_operator('+')
             self.calc.add_to_expression(i)
@@ -142,6 +142,20 @@ class TestCalculator(unittest.TestCase):
         self.calc.add_to_expression(987654321)
         self.calc.evaluate()
         self.assertEqual(self.calc.current_expression, str(123456789 * 987654321))
+
+    def test_nested_operations(self):
+        for i in range(1, 1000):
+            self.calc.add_to_expression(i)
+            self.calc.append_operator('+')
+            self.calc.add_to_expression(i + 1)
+            self.calc.append_operator('*')
+            self.calc.add_to_expression(i + 2)
+            self.calc.append_operator('/')
+            self.calc.add_to_expression(i + 3)
+            self.calc.evaluate()
+            # Assert expected result here (if calculable in advance)
+            self.calc.clear()
+
 
 
 if __name__ == "__main__":
