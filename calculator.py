@@ -14,11 +14,37 @@ class CalculatorCLI:
         self.current_expression = ""
         self.total_expression = ""
 
-    def square(self):
+    '''def square(self):
         self.current_expression = str(eval(f"{self.current_expression}**2"))
 
     def sqrt(self):
-        self.current_expression = str(eval(f"{self.current_expression}**0.5"))
+        self.current_expression = str(eval(f"{self.current_expression}**0.5"))'''
+
+    def square(self):
+        # Evaluate the full expression, then square the result
+        try:
+            result = eval(self.total_expression + self.current_expression)
+            self.current_expression = str(result ** 2)
+            self.total_expression = ""
+        except Exception:
+            self.current_expression = "Error"
+
+    def sqrt(self):
+        # Evaluate the full expression, then apply square root
+        try:
+            result = eval(self.total_expression + self.current_expression)
+            self.current_expression = str(result ** 0.5)
+            self.total_expression = ""
+        except Exception:
+            self.current_expression = "Error"
+
+    def evaluate(self):
+        self.total_expression += self.current_expression
+        try:
+            self.current_expression = str(eval(self.total_expression))
+            self.total_expression = ""
+        except Exception:
+            self.current_expression = "Error"
 
     def evaluate(self):
         self.total_expression += self.current_expression
