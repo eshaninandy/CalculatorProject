@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     for (int i = 1; i <= 1000; i++) {
-                        build job: 'CalculatorPipeline', wait: false
+                        build job: env.JOB_NAME, wait: false
                     }
                 }
             }
