@@ -135,6 +135,14 @@ class TestCalculator(unittest.TestCase):
             self.calc.evaluate()
             self.assertEqual(self.calc.current_expression, str(i + i))
             self.calc.clear()
+            
+    def test_complex_operations(self):
+        self.calc.add_to_expression(123456789)
+        self.calc.append_operator('*')
+        self.calc.add_to_expression(987654321)
+        self.calc.evaluate()
+        self.assertEqual(self.calc.current_expression, str(123456789 * 987654321))
+
 
 if __name__ == "__main__":
     unittest.main()
