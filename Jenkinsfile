@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    options {
-        timeout(time: 8, unit: 'HOURS')
-    }
     stages {
         stage('Run Complex Tests in Parallel') {
             parallel {
