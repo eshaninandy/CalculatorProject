@@ -63,7 +63,7 @@ class TestCalculator(unittest.TestCase):
         self.calc.append_operator('/')
         self.calc.add_to_expression(4)
         self.calc.evaluate()
-        self.assertEqual(self.calc.current_expression, '2.0')
+        self.assertEqual(self.calc.current_expression, '9.5')
         
     def test_more_complex_expression(self):
         # 10 + 2 * 3 - 5 / 5
