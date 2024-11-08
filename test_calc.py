@@ -103,7 +103,7 @@ class TestCalculator(unittest.TestCase):
         self.calc.add_to_expression(9)
         self.calc.append_operator('+')
         self.calc.add_to_expression(16)
-        self.calc.sqrt(self.calc.current_expression)
+        self.calc.sqrt()
         self.assertEqual(self.calc.current_expression, '5.0')
 
     def test_square_root_in_expression(self):
@@ -111,7 +111,7 @@ class TestCalculator(unittest.TestCase):
         self.calc.add_to_expression(16)
         self.calc.append_operator('/')
         self.calc.add_to_expression(4)
-        self.calc.square(self.calc.current_expression)
+        self.calc.square()
         self.assertEqual(self.calc.current_expression, '16.0')
 
 if __name__ == "__main__":
