@@ -1,15 +1,6 @@
 pipeline {
     agent any
     stages {
-        /*stage('Trigger Multiple Builds') {
-            steps {
-                script {
-                    for (int i = 1; i <= 1000; i++) {
-                        build job: env.JOB_NAME, wait: false
-                    }
-                }
-            }
-        }*/
         stage('Run Complex Tests in Parallel') {
             parallel {
                 stage('Addition Tests') {
