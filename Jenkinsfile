@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'node-1'
+    }
     stages {
         stage('Run Complex Tests in Parallel') {
             parallel {
