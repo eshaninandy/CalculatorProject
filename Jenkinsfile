@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'Built-In'
+        label 'node-1'
     }
     stages {
         stage('Run Complex Tests in Parallel') {
