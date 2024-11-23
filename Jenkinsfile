@@ -55,6 +55,8 @@ pipeline {
                         sh '''
                         . venv/bin/activate
                         python -m unittest test_calc.TestCalculator.test_nested_operations'''
+                    }
+                }
             }
         }
     }
