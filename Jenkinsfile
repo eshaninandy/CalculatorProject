@@ -7,7 +7,7 @@ pipeline {
             steps {
                 sh '''
                 python3 -m venv venv
-                source venv/bin/activate
+                . venv/bin/activate
                 '''
             }
         }
@@ -16,7 +16,7 @@ pipeline {
                 stage('Addition Tests') {
                     steps {
                         sh '''
-                        source venv/bin/activate
+                        . venv/bin/activate
                         python -m unittest test_calc.TestCalculator.test_addition_loop
                         '''
                     }
@@ -24,7 +24,7 @@ pipeline {
                 stage('Subtraction and Multiplication Tests') {
                     steps {
                         sh '''
-                        source venv/bin/activate
+                        . venv/bin/activate
                         python -m unittest test_calc.TestCalculator.test_subtraction
                         '''
                     }
@@ -32,21 +32,21 @@ pipeline {
                 stage('Square and Sqrt Tests') {
                     steps {
                         sh '''
-                        source venv/bin/activate
+                        . venv/bin/activate
                         python -m unittest test_calc.TestCalculator.test_square_and_sqrt_loop'''
                     }
                 }
                 stage('Combined Operations') {
                     steps {
                         sh '''
-                        source venv/bin/activate
+                        . venv/bin/activate
                         python -m unittest test_calc.TestCalculator.test_combined_operations'''
                     }
                 }
                 stage('Complex Operations and Load Test') {
                     steps {
                         sh '''
-                        source venv/bin/activate
+                        . venv/bin/activate
                         python -m unittest test_calc.TestCalculator.test_complex_operations'''
                     }
                 }
